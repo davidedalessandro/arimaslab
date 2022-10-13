@@ -3,16 +3,24 @@ const config = require("./config/config");
 const activeEnv =
     process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development";
 
-    module.exports = {
-        plugins: [
-          {
-            resolve: `gatsby-source-wordpress`,
-            options: {
-              url: process.env.WPGRAPHQL_URL || `https://www.arimaslab.com/graphql`,
-            },
-          },
-        ],
-      },
+module.exports = {
+    pathPrefix: config.pathPrefix,
+    siteMetadata: {
+        title: config.title,
+        titleTemplate: config.titleTemplate,
+        description: config.description,
+        image: config.image,
+        siteLanguage: config.siteLanguage,
+        author: config.author,
+        mainUrl: config.siteUrl,
+        siteUrl:
+            activeEnv === "development"
+                ? config.localUrl
+                : `${config.siteUrl}${config.pathPrefix}`,
+        canonical: config.canonical,
+        twitterUsername: config.twitterUsername,
+        keywords: config.keywords,
+    },
     mapping: {
         "MarkdownRemark.frontmatter.author": `AuthorsJson.name`,
         "MarkdownRemark.frontmatter.categories": `CategoriesJson.name`,
