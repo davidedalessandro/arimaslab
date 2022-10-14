@@ -8,7 +8,9 @@ class BlogPage extends Component {
     return (
     <Layout pageTitle="Post Arimaslab">
       {
-        data.allMdx.nodes.map(node => (
+
+        <h1>Ciao!</h1>
+        /*data.allMdx.nodes.map(node => (
           <article key={node.id}>
             <h2>
               <Link to={`/blog/${node.frontmatter.slug}`}>
@@ -18,7 +20,7 @@ class BlogPage extends Component {
             <p>Posted: {node.frontmatter.date}</p>
           </article>
         ))
-      }
+        */}
     </Layout>)
   }
 }
