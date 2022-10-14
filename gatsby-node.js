@@ -40,7 +40,7 @@ exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions;
 
     // fields create in qrapql file
-    if (node.internal.type === "allMarkdownRemark") {
+    if (node.internal.type === "MarkdownRemark") {
         const slugFromTitle = slugify(node.frontmatter.title);
         const date = node.frontmatter.date;
         const dateSplit = date.split(" ");
@@ -98,7 +98,7 @@ exports.createPages = ({ actions, graphql }) => {
 
     return graphql(`
         {
-            allMarkdownRemark {
+            MarkdownRemark {
                 edges {
                     node {
                         frontmatter {
