@@ -40,7 +40,7 @@ exports.onCreateNode = ({ node, actions }) => {
     const { createNodeField } = actions;
 
     // fields create in qrapql file
-    if (node.internal.type === "MarkdownRemark") {
+    if (node.internal.type === "allMarkdownRemark") {
         const slugFromTitle = slugify(node.frontmatter.title);
         const date = node.frontmatter.date;
         const dateSplit = date.split(" ");
