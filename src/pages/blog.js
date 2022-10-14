@@ -1,10 +1,11 @@
 import * as React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../src/layouts/index-6'
-import Seo from '../src/components/seo'
+import Layout from "../layouts/index-6"
 
-const BlogPage = ({ data }) => {
-  return (
+
+class BlogPage extends Component {
+  render (){
+    return (
     <Layout pageTitle="Post Arimaslab">
       {
         data.allMdx.nodes.map(node => (
@@ -18,11 +19,11 @@ const BlogPage = ({ data }) => {
           </article>
         ))
       }
-    </Layout>
-  )
+    </Layout>)
+  }
 }
 
-export const query = graphql`
+/*export const query = graphql`
   query {
     allMdx(sort: {fields: frontmatter___date, order: DESC}) {
       nodes {
@@ -35,7 +36,7 @@ export const query = graphql`
       }
     }
   }
-`
+`*/
 
 export const Head = () => <Seo title="Post Arimaslab" />
 
