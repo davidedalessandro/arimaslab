@@ -3,16 +3,6 @@ const path = require("path");
 const { slugify } = require("./src/utils/functions");
 const _ = require("lodash");
 
-exports.createSchemaCustomization = ({ actions }) => {
-    const { createTypes } = actions
-    const typeDefs = `
-      type AuthorJson implements Node {
-        joinedAt: Date
-      }
-    `
-    createTypes(typeDefs)
-  }
-
 exports.onCreateWebpackConfig = ({ actions }) => {
     actions.setWebpackConfig({
         resolve: {
